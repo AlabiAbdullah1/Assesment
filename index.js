@@ -28,10 +28,9 @@ app.use("/user", authRoute);
 app.use(updatePackage.updatePackage);
 app.use("/package", verify.verifyToken, packageRoute);
 
-
-app.use("/", (req, res) => {
-    res.status(200).send("WELCOME TO MY PACKAGE API");
-  });
+app.get("/", (req, res) => {
+  res.status(200).send("WELCOME TO MY PACKAGE API");
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
